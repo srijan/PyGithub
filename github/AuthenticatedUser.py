@@ -29,7 +29,7 @@ import github.Authorization
 
 class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
     """
-    This class represents AuthenticatedUsers as returned for example by http://developer.github.com/v3/todo
+    This class represents AuthenticatedUsers as returned for example by http://developer.github.com/v3/users/#get-the-authenticated-user
     """
 
     @property
@@ -234,7 +234,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def add_to_emails(self, *emails):
         """
-        :calls: `POST /user/emails <http://developer.github.com/v3/todo>`_
+        :calls: `POST /user/emails <http://developer.github.com/v3/users/emails/#add-email-addresses>`_
         :param email: string
         :rtype: None
         """
@@ -249,7 +249,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def add_to_following(self, following):
         """
-        :calls: `PUT /user/following/:user <http://developer.github.com/v3/todo>`_
+        :calls: `PUT /user/following/:user <http://developer.github.com/v3/users/followers/#follow-a-user>`_
         :param following: :class:`github.NamedUser.NamedUser`
         :rtype: None
         """
@@ -263,7 +263,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def add_to_starred(self, starred):
         """
-        :calls: `PUT /user/starred/:user/:repo <http://developer.github.com/v3/todo>`_
+        :calls: `PUT /user/starred/:user/:repo <http://developer.github.com/v3/activity/starring/#star-a-repository>`_
         :param starred: :class:`github.Repository.Repository`
         :rtype: None
         """
@@ -519,7 +519,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def get_emails(self):
         """
-        :calls: `GET /user/emails <http://developer.github.com/v3/todo>`_
+        :calls: `GET /user/emails <http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user>`_
         :rtype: list of string
         """
         headers, data = self._requester.requestJsonAndCheck(
@@ -544,7 +544,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def get_followers(self):
         """
-        :calls: `GET /user/followers <http://developer.github.com/v3/todo>`_
+        :calls: `GET /user/followers <http://developer.github.com/v3/users/followers/#list-followers-of-a-user>`_
         :rtype: :class:`github.PaginatedList.PaginatedList` of :class:`github.NamedUser.NamedUser`
         """
         return github.PaginatedList.PaginatedList(
@@ -556,7 +556,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def get_following(self):
         """
-        :calls: `GET /user/following <http://developer.github.com/v3/todo>`_
+        :calls: `GET /user/following <http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user>`_
         :rtype: :class:`github.PaginatedList.PaginatedList` of :class:`github.NamedUser.NamedUser`
         """
         return github.PaginatedList.PaginatedList(
@@ -685,7 +685,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def get_starred(self):
         """
-        :calls: `GET /user/starred <http://developer.github.com/v3/todo>`_
+        :calls: `GET /user/starred <http://developer.github.com/v3/activity/starring/#list-repositories-being-starred>`_
         :rtype: :class:`github.PaginatedList.PaginatedList` of :class:`github.Repository.Repository`
         """
         return github.PaginatedList.PaginatedList(
@@ -733,7 +733,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def has_in_following(self, following):
         """
-        :calls: `GET /user/following/:user <http://developer.github.com/v3/todo>`_
+        :calls: `GET /user/following/:user <http://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user>`_
         :param following: :class:`github.NamedUser.NamedUser`
         :rtype: bool
         """
@@ -793,7 +793,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def remove_from_emails(self, *emails):
         """
-        :calls: `DELETE /user/emails <http://developer.github.com/v3/todo>`_
+        :calls: `DELETE /user/emails <http://developer.github.com/v3/users/emails/#delete-email-addresses>`_
         :param email: string
         :rtype: None
         """
@@ -808,7 +808,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def remove_from_following(self, following):
         """
-        :calls: `DELETE /user/following/:user <http://developer.github.com/v3/todo>`_
+        :calls: `DELETE /user/following/:user <http://developer.github.com/v3/users/followers/#unfollow-a-user>`_
         :param following: :class:`github.NamedUser.NamedUser`
         :rtype: None
         """
@@ -822,7 +822,7 @@ class AuthenticatedUser(github.GithubObject.CompletableGithubObject):
 
     def remove_from_starred(self, starred):
         """
-        :calls: `DELETE /user/starred/:user/:repo <http://developer.github.com/v3/todo>`_
+        :calls: `DELETE /user/starred/:user/:repo <http://developer.github.com/v3/activity/starring/#unstar-a-repository>`_
         :param starred: :class:`github.Repository.Repository`
         :rtype: None
         """
